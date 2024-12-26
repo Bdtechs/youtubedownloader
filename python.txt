@@ -1,0 +1,17 @@
+import requests
+
+@app.route('/youtube-downloader', methods=['GET', 'POST'])
+def youtube_downloader():
+    if request.method == 'POST':
+        url = request.form['url']
+        video_id = url.split("v=")[-1]
+        api_key = "YOUR_YOUTUBE_API_KEY"
+        youtube_api_url = f"https://www.googleapis.com/youtube/v3/videos?id={video_id}&key={api_key}&part=snippet"
+        
+        response = requests.get(youtube_api_url).json()
+        if "items" in response and len(response["items"]) > 0:
+            video_title = response["items"][0]["snippet"]["title"]
+            return f"Video Title: {video_title} - Video ID: {video_id}"
+        else:
+            return "Invalid YouTube URL or API Error"
+    return render_template('youtube_downloader.html')
