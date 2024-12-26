@@ -1,175 +1,18 @@
-/* styles.css */
-
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-image: url('/static/images/background.jpg'); /* Add your background image */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
 }
-
 header {
-    background-color: #282c34;
-    color: white;
-    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
 }
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+main {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
 }
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    margin-left: 1rem;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-header nav ul li a:hover {
-    text-decoration: underline;
-}
-
-.section {
-    padding: 2rem 1rem;
-    text-align: center;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.tool-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 1rem;
-    margin: 1rem auto;
-    max-width: 300px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tool-card h3 {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.tool-card button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.tool-card button:hover {
-    background-color: #0056b3;
-}
-
-footer {
-    background-color: #282c34;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-/* Responsive Styles */
-@media (min-width: 768px) {
-    .tool-card {
-        display: inline-block;
-        width: 30%;
-        margin: 1rem;
-    }
-}
-
-/* scripts.js */
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Document loaded.');
-
-    const API_KEY = 'YOUR_API_KEY';
-
-    // YouTube API Interaction
-    function loadYouTubeAPI() {
-        gapi.load('client', () => {
-            gapi.client.init({
-                apiKey: API_KEY,
-                discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
-            }).then(() => {
-                console.log('YouTube API loaded successfully.');
-            }).catch(err => console.error('YouTube API loading error:', err));
-        });
-    }
-
-    // Navigation Handling
-    const pages = {
-        home: document.getElementById('home-page'),
-        tools: document.getElementById('tools-page'),
-        about: document.getElementById('about-page'),
-    };
-
-    document.querySelectorAll('header nav ul li a').forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetPage = event.target.getAttribute('href').substring(1);
-            Object.keys(pages).forEach(page => {
-                pages[page].style.display = (page === targetPage) ? 'block' : 'none';
-            });
-        });
-    });
-
-    // Default Page
-    pages.home.style.display = 'block';
-    Object.keys(pages).filter(page => page !== 'home').forEach(page => {
-        pages[page].style.display = 'none';
-    });
-
-    loadYouTubeAPI();
-});
-
-/* HTML Navigation Structure */
-
-<!-- Example navigation menu in header -->
-<header>
-    <div class="container">
-        <h1>YouTube Promoter</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<!-- Example pages -->
-<div id="home-page" class="section">
-    <h2>Welcome to YouTube Promoter</h2>
-    <p>Boost your YouTube channel with our tools!</p>
-</div>
-<div id="tools-page" class="section">
-    <h2>Our Tools</h2>
-    <p>Explore our tools to enhance your YouTube presence.</p>
-</div>
-<div id="about-page" class="section">
-    <h2>About Us</h2>
-    <p>Learn more about our mission and services.</p>
-</div>
