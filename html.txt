@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Promoter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>YouTube Promoter</h1>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#earn">Earn Profit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Promote Your YouTube Channel</h2>
+            <p>Boost your subscribers, likes, and video views with our advanced promotion tools and server-based credits system.</p>
+        </div>
+    </section>
+
+    <section id="tools" class="section">
+        <div class="container">
+            <h2>Our Tools</h2>
+            <div class="tool-card">
+                <h3>Free YouTube Subscribers</h3>
+                <p>Gain real subscribers to boost your YouTube presence.</p>
+                <button onclick="fetchSubscribers()">Open Tool</button>
+            </div>
+            <div class="tool-card">
+                <h3>Free Video Views</h3>
+                <p>Increase visibility on your videos with genuine views.</p>
+                <button onclick="fetchVideoViews()">Open Tool</button>
+            </div>
+            <div class="tool-card">
+                <h3>Free Likes</h3>
+                <p>Get likes on your videos to improve engagement.</p>
+                <button onclick="fetchLikes()">Open Tool</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="earn" class="section">
+        <div class="container">
+            <h2>Earn Profit</h2>
+            <p>Earn credits by promoting tasks. <a href="https://www.youtube.com/channel/UClSpJud-EfY7uL5E3ccqdVw" target="_blank">Start here</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 YouTube Promoter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // YouTube API Initialization
+        function loadYouTubeAPI() {
+            gapi.load('client', () => {
+                gapi.client.init({
+                    apiKey: 'YOUR_API_KEY',
+                    discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
+                }).then(() => {
+                    console.log('YouTube API initialized');
+                }).catch(error => console.error('Error initializing YouTube API', error));
+            });
+        }
+
+        // Fetching Data
+        function fetchSubscribers() {
+            // Replace with server-based logic to fetch subscribers
+            console.log('Fetching Subscribers...');
+        }
+
+        function fetchVideoViews() {
+            // Replace with server-based logic to fetch views
+            console.log('Fetching Video Views...');
+        }
+
+        function fetchLikes() {
+            // Replace with server-based logic to fetch likes
+            console.log('Fetching Likes...');
+        }
+
+        loadYouTubeAPI();
+    </script>
+</body>
+</html>
